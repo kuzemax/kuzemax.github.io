@@ -28,7 +28,7 @@
 <meta property="og:description" content="建立teaching库 我现在使用SQL Server Management Studio 20进行数据库管理操作。现在我将给你一个数据库的脚本，然后提出一些数据库管理任务，你需要给出对应在这个数据库中的命令。要求：遵循SQL Server Management Studio 20的语法，尽量使用基础命令实现功能，直接了当给出结果，少说没必要的拓展。这是数据库的脚本CREATE DATABASE">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-11-11T11:09:45.000Z">
-<meta property="article:modified_time" content="2024-11-11T11:24:32.769Z">
+<meta property="article:modified_time" content="2024-11-11T12:04:58.061Z">
 <meta property="article:author" content="kuzemax">
 <meta property="article:tag" content="kuze">
 <meta name="twitter:card" content="summary">
@@ -79,7 +79,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-11-11T11:09:45.000Z">2024-11-11</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-11-11T11:24:32.769Z">2024-11-11</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-11-11T11:09:45.000Z">2024-11-11</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-11-11T12:04:58.061Z">2024-11-11</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -97,10 +97,8 @@
 <h1 id="建立bankcard库"><a href="#建立bankcard库" class="headerlink" title="建立bankcard库"></a>建立bankcard库</h1><blockquote>
 <p>1．使用SSMS创建名为“bankcard（银行卡管理）”的数据库，并设置数据库主文件名为bankcard _data，初始大小为10MB，日志文件名为bankcard _log，初始大小为10MB，其它默认。所有的文件都放在目录“F:\DATA”中。 存放位置也可自行决定。<br>2．在 “bankcard”数据库中完成下列操作。<br>(1)创建“depositor”储户表，表结构如表1：<br>表1 储户表的表结构<br>属性名	类型	宽度	键值	允许空否	取值范围	属性的含义<br>IDNO	char	18	主键	否		身份证号<br>Dname	nvarchar	10		否		姓名<br>Telephone	char	11		否	数字字符	手机号<br>VIP	nchar	1		否	是或否	贵宾储户</p>
 </blockquote>
-<p>(2)创建“account” 账户表，表结构如表2：<br>表2 账户表的表结构<br>属性名	类型	宽度	键值	允许空否	取值范围	属性的含义<br>AccNO	char	20	主键	否	数字字符	账号<br>IDNO	char	18	外键	否	参考储户表主键	身份证号<br>Password	char	6		否	数字字符	密码<br>OpenDate	date			否	默认值：当前日期	开户日期<br>CardType	nchar	3		否	信用卡、借记卡等	卡类型<br>MoneyType	nvarchar	10		否	人民币、美元等	币种<br>Balance	money			否		余额<br>ExpiryDate	date			否	〉OpenDate	有效期<br>(3)创建“Trecord”交易记录表，表结构如表3：</p>
-<p>表3 交易记录表的表结构<br>属性名	类型	宽度	键值	允许空否	取值范围	属性的含义<br>ID	int		主键	否	IDENTITY(1,1) ，从1开始自动编号	顺序号<br>TDate	date			否	默认值：当前日期	交易时间<br>AccNO	char	20	外键	否	数字字符，参考账户表主键	账号<br>Expense	money			是		支出<br>Income	money			是		收入<br>OppAccNO	char	20	外键	是	数字字符	对方账号<br>Place	nvarchar	30		是		交易地点</p>
 <blockquote>
-<p>Abstract	nvarchar	20		是	转账、消费、工资、ATM取款等	摘要</p>
+<p>(2)创建“account” 账户表，表结构如表2：<br>表2 账户表的表结构<br>属性名	类型	宽度	键值	允许空否	取值范围	属性的含义<br>AccNO	char	20	主键	否	数字字符	账号<br>IDNO	char	18	外键	否	参考储户表主键	身份证号<br>Password	char	6		否	数字字符	密码<br>OpenDate	date			否	默认值：当前日期	开户日期<br>CardType	nchar	3		否	信用卡、借记卡等	卡类型<br>MoneyType	nvarchar	10		否	人民币、美元等	币种<br>Balance	money			否		余额<br>ExpiryDate	date			否	〉OpenDate	有效期<br>(3)创建“Trecord”交易记录表，表结构如表3：<br>表3 交易记录表的表结构<br>属性名	类型	宽度	键值	允许空否	取值范围	属性的含义<br>ID	int		主键	否	IDENTITY(1,1) ，从1开始自动编号	顺序号<br>TDate	date			否	默认值：当前日期	交易时间<br>AccNO	char	20	外键	否	数字字符，参考账户表主键	账号<br>Expense	money			是		支出<br>Income	money			是		收入<br>OppAccNO	char	20	外键	是	数字字符	对方账号<br>Place	nvarchar	30		是		交易地点<br>Abstract	nvarchar	20		是	转账、消费、工资、ATM取款等	摘要</p>
 </blockquote>
 
 <div class="article-footer fs14">
