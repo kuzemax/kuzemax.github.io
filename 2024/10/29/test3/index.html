@@ -20,15 +20,15 @@
   <title>test - kuzemax's blog</title>
 
   
-    <meta name="description" content="123">
+    <meta name="description" content="USE teachingGOINSERT into scvalues(‘201501001’,’X003’,NULL),(‘201502005’,’X003’,NULL),(‘201602001’,’C001’,98),(‘201602001’,’C004’,81),(‘201602001’,’X003’,85),(‘201603005’,’C001’,78),(‘201603005’,’C004">
 <meta property="og:type" content="article">
 <meta property="og:title" content="test">
 <meta property="og:url" content="https://kuzemax.github.io/2024/10/29/test3/index.html">
 <meta property="og:site_name" content="kuzemax&#39;s blog">
-<meta property="og:description" content="123">
+<meta property="og:description" content="USE teachingGOINSERT into scvalues(‘201501001’,’X003’,NULL),(‘201502005’,’X003’,NULL),(‘201602001’,’C001’,98),(‘201602001’,’C004’,81),(‘201602001’,’X003’,85),(‘201603005’,’C001’,78),(‘201603005’,’C004">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-10-29T07:39:41.000Z">
-<meta property="article:modified_time" content="2024-10-29T08:55:53.809Z">
+<meta property="article:modified_time" content="2024-11-11T08:19:16.972Z">
 <meta property="article:author" content="kuzemax">
 <meta property="article:tag" content="kuze">
 <meta name="twitter:card" content="summary">
@@ -66,7 +66,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/10/22/test1/"><span class="title">第一次写一下博客</span></a><a class="item title" href="/2024/10/22/test2/"><span class="title">传奇ChatGpt驯兽手册</span></a><a class="item title" href="/2024/10/29/test3/"><span class="title">test</span></a><a class="item title" href="/2024/10/22/hello-world/"><span class="title">Hello World</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/10/29/test3/"><span class="title">test</span></a><a class="item title" href="/2024/10/22/test1/"><span class="title">第一次写一下博客</span></a><a class="item title" href="/2024/10/22/test2/"><span class="title">传奇ChatGpt驯兽手册</span></a><a class="item title" href="/2024/10/22/hello-world/"><span class="title">Hello World</span></a></div></widget>
 </div>
 
 </div></aside><div class="l_main" id="main">
@@ -79,7 +79,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-10-29T07:39:41.000Z">2024-10-29</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-10-29T08:55:53.809Z">2024-10-29</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-10-29T07:39:41.000Z">2024-10-29</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-11-11T08:19:16.972Z">2024-11-11</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -90,7 +90,10 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><p>123</p>
+  </div><article class="md-text content"><p>USE teaching<br>GO<br>INSERT into sc<br>values<br>(‘201501001’,’X003’,NULL),(‘201502005’,’X003’,NULL),(‘201602001’,’C001’,98),<br>(‘201602001’,’C004’,81),(‘201602001’,’X003’,85),(‘201603005’,’C001’,78),<br>(‘201603005’,’C004’,97),(‘201701003’,’C001’,72),(‘201701003’,’E002’,73),<br>(‘201703001’,’C001’,85),(‘201704001’,’E002’,76)</p>
+<p>Create table teacher<br>(tno int primary key,<br>  tname nvarchar(6),<br>  prof_title  nvarchar(10)<br>)<br>go<br>create table teacher_salary<br>(tno int primary key<br> foreign key references teacher(tno),<br> tname nvarchar(6),<br> salary int)<br>go</p>
+<p>insert teacher values(1,’郑浩’,’教授’)<br>insert teacher values(2,’王伟’,’副教授’)<br>insert teacher values(3,’李平’,’讲师’)</p>
+<p>create table salary_level<br>(prof_title nvarchar(10) primary key ,<br> minsalary int,<br> maxsalary int)<br>go<br>insert salary_level values(‘教授’,7000,8900)<br>insert salary_level values(‘副教授’,5800,7200)<br>insert salary_level values(‘讲师’,4500,5900)<br>insert salary_level values(‘助教’,3900,4900)</p>
 
 <div class="article-footer fs14">
     <section id="license">
