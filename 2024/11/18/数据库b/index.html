@@ -17,18 +17,18 @@
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
   
-  <title>数据作业Chatgpt建表 - kuzemax's blog</title>
+  <title>数据库b - kuzemax's blog</title>
 
   
-    <meta name="description" content="建立teaching库 我现在使用SQL Server Management Studio 20进行数据库管理操作。现在我将给你一个数据库的脚本，然后提出一些数据库管理任务，你需要给出对应在这个数据库中的命令。要求：遵循SQL Server Management Studio 20的语法，尽量使用基础命令实现功能，直接了当给出结果，少说没必要的拓展。这是数据库的脚本CREATE DATABASE">
+    <meta name="description" content="创建视图，查询所有VIP储户的账户信息（账号，身份证号，密码，开户日期，卡类型，币种，余额，有效期)，要求用子查询完成。然后，分析此视图用户会如何使用，并举出用户使用此视图的例子。上交内容包含创建语句，分析文字以及所有举例语句。 ChatGPT 说：ChatGPT 创建视图1234567891011121314151617181920sql复制代码-- 创建视图，用于查询所有VIP储户的账户信息C">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据作业Chatgpt建表">
-<meta property="og:url" content="https://kuzemax.github.io/2024/11/11/%E6%95%B0%E6%8D%AE%E4%BD%9C%E4%B8%9AChatgpt%E5%BB%BA%E8%A1%A8/index.html">
+<meta property="og:title" content="数据库b">
+<meta property="og:url" content="https://kuzemax.github.io/2024/11/18/%E6%95%B0%E6%8D%AE%E5%BA%93b/index.html">
 <meta property="og:site_name" content="kuzemax&#39;s blog">
-<meta property="og:description" content="建立teaching库 我现在使用SQL Server Management Studio 20进行数据库管理操作。现在我将给你一个数据库的脚本，然后提出一些数据库管理任务，你需要给出对应在这个数据库中的命令。要求：遵循SQL Server Management Studio 20的语法，尽量使用基础命令实现功能，直接了当给出结果，少说没必要的拓展。这是数据库的脚本CREATE DATABASE">
+<meta property="og:description" content="创建视图，查询所有VIP储户的账户信息（账号，身份证号，密码，开户日期，卡类型，币种，余额，有效期)，要求用子查询完成。然后，分析此视图用户会如何使用，并举出用户使用此视图的例子。上交内容包含创建语句，分析文字以及所有举例语句。 ChatGPT 说：ChatGPT 创建视图1234567891011121314151617181920sql复制代码-- 创建视图，用于查询所有VIP储户的账户信息C">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-11-11T11:09:45.000Z">
-<meta property="article:modified_time" content="2024-11-11T12:04:58.061Z">
+<meta property="article:published_time" content="2024-11-18T06:56:01.526Z">
+<meta property="article:modified_time" content="2024-11-18T06:56:01.526Z">
 <meta property="article:author" content="kuzemax">
 <meta property="article:tag" content="kuze">
 <meta name="twitter:card" content="summary">
@@ -79,27 +79,97 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-11-11T11:09:45.000Z">2024-11-11</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-11-11T12:04:58.061Z">2024-11-11</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-11-18T06:56:01.526Z">2024-11-18</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-11-18T06:56:01.526Z">2024-11-18</time></span></div></div></div>
     
     <div class="bottom only-title">
       
       <div class="text-area">
-        <h1 class="text title"><span>数据作业Chatgpt建表</span></h1>
+        <h1 class="text title"><span>数据库b</span></h1>
         
       </div>
     </div>
     
   </div>
-  </div><article class="md-text content"><h1 id="建立teaching库"><a href="#建立teaching库" class="headerlink" title="建立teaching库"></a>建立teaching库</h1><blockquote>
-<p>我现在使用SQL Server Management Studio 20进行数据库管理操作。现在我将给你一个数据库的脚本，然后提出一些数据库管理任务，你需要给出对应在这个数据库中的命令。要求：遵循SQL Server Management Studio 20的语法，尽量使用基础命令实现功能，直接了当给出结果，少说没必要的拓展。这是数据库的脚本CREATE DATABASE teaching<br> ON<br>( NAME &#x3D; ‘teaching’,<br>FILENAME &#x3D; ‘E:\DATA\teaching.mdf’ ,<br>SIZE &#x3D; 5MB ,<br>MAXSIZE &#x3D; UNLIMITED,<br>FILEGROWTH &#x3D; 10%)<br> LOG ON<br>( NAME &#x3D; ‘teaching_log’,<br>FILENAME &#x3D; ‘E:\DATA\teaching_log.ldf’ ,<br> SIZE &#x3D; 8MB ,<br> MAXSIZE &#x3D; UNLIMITED ,<br> FILEGROWTH &#x3D; 1MB )<br>CREATE TABLE student<br>      (sno    char(9)     PRIMARY KEY,<br>      sname  nvarchar(8)  NOT NULL ,<br>      ssex    nchar(1)     NOT NULL  CHECK (ssexr&#x3D;’男’ or ssex&#x3D;’女’),<br>      sbirthday   date,<br>      en_time    date,<br>      major     nvarchar(10),<br>      grade      nchar(5)  NOT NULL<br>      )<br>CREATE TABLE course<br>      (cno       char(4)     PRIMARY KEY,<br>      cname       nvarchar(20)  NOT NULL,<br>      classhour   tinyint   CHECK (classhour&gt;&#x3D;2 and classhour&lt;&#x3D;6),<br>      credit      tinyint   CHECK (credit&gt;&#x3D;1 and credit&lt;&#x3D;5)<br>      )<br>CREATE TABLE sc<br>( sno   char(10)  FOREIGN KEY    REFERENCES  student(sno),<br> cno   char(4)   FOREIGN KEY    REFERENCES  course(cno),<br> score  int   CHECK (score&gt;&#x3D;0 and score&lt;&#x3D;100),<br> PRIMARY  KEY(sno,cno)<br>)</p>
-</blockquote>
-<hr>
-<h1 id="建立bankcard库"><a href="#建立bankcard库" class="headerlink" title="建立bankcard库"></a>建立bankcard库</h1><blockquote>
-<p>1．使用SSMS创建名为“bankcard（银行卡管理）”的数据库，并设置数据库主文件名为bankcard _data，初始大小为10MB，日志文件名为bankcard _log，初始大小为10MB，其它默认。所有的文件都放在目录“F:\DATA”中。 存放位置也可自行决定。<br>2．在 “bankcard”数据库中完成下列操作。<br>(1)创建“depositor”储户表，表结构如表1：<br>表1 储户表的表结构<br>属性名	类型	宽度	键值	允许空否	取值范围	属性的含义<br>IDNO	char	18	主键	否		身份证号<br>Dname	nvarchar	10		否		姓名<br>Telephone	char	11		否	数字字符	手机号<br>VIP	nchar	1		否	是或否	贵宾储户</p>
-</blockquote>
-<blockquote>
-<p>(2)创建“account” 账户表，表结构如表2：<br>表2 账户表的表结构<br>属性名	类型	宽度	键值	允许空否	取值范围	属性的含义<br>AccNO	char	20	主键	否	数字字符	账号<br>IDNO	char	18	外键	否	参考储户表主键	身份证号<br>Password	char	6		否	数字字符	密码<br>OpenDate	date			否	默认值：当前日期	开户日期<br>CardType	nchar	3		否	信用卡、借记卡等	卡类型<br>MoneyType	nvarchar	10		否	人民币、美元等	币种<br>Balance	money			否		余额<br>ExpiryDate	date			否	〉OpenDate	有效期<br>(3)创建“Trecord”交易记录表，表结构如表3：<br>表3 交易记录表的表结构<br>属性名	类型	宽度	键值	允许空否	取值范围	属性的含义<br>ID	int		主键	否	IDENTITY(1,1) ，从1开始自动编号	顺序号<br>TDate	date			否	默认值：当前日期	交易时间<br>AccNO	char	20	外键	否	数字字符，参考账户表主键	账号<br>Expense	money			是		支出<br>Income	money			是		收入<br>OppAccNO	char	20	外键	是	数字字符	对方账号<br>Place	nvarchar	30		是		交易地点<br>Abstract	nvarchar	20		是	转账、消费、工资、ATM取款等	摘要</p>
-</blockquote>
+  </div><article class="md-text content"><p>创建视图，查询所有VIP储户的账户信息（账号，身份证号，密码，开户日期，卡类型，币种，余额，有效期)，要求用子查询完成。然后，分析此视图用户会如何使用，并举出用户使用此视图的例子。上交内容包含创建语句，分析文字以及所有举例语句。</p>
+<h6 id="ChatGPT-说："><a href="#ChatGPT-说：" class="headerlink" title="ChatGPT 说："></a>ChatGPT 说：</h6><p>ChatGPT</p>
+<h3 id="创建视图"><a href="#创建视图" class="headerlink" title="创建视图"></a>创建视图</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">sql复制代码-- 创建视图，用于查询所有VIP储户的账户信息</span><br><span class="line">CREATE VIEW View_VIPAccounts AS</span><br><span class="line">SELECT </span><br><span class="line">    a.AccNO, </span><br><span class="line">    a.IDNO, </span><br><span class="line">    a.Password, </span><br><span class="line">    a.OpenDate, </span><br><span class="line">    a.CardType, </span><br><span class="line">    a.MoneyType, </span><br><span class="line">    a.Balance, </span><br><span class="line">    a.ExpiryDate</span><br><span class="line">FROM </span><br><span class="line">    account a</span><br><span class="line">WHERE </span><br><span class="line">    a.IDNO IN (</span><br><span class="line">        SELECT d.IDNO</span><br><span class="line">        FROM depositor d</span><br><span class="line">        WHERE d.VIP = &#x27;是&#x27;</span><br><span class="line">    );</span><br><span class="line">GO</span><br></pre></td></tr></table></figure>
+
+<h3 id="视图分析"><a href="#视图分析" class="headerlink" title="视图分析"></a>视图分析</h3><p>此视图 <code>View_VIPAccounts</code> 提供了所有VIP储户的详细账户信息。用户可以利用此视图方便地查看VIP客户的账户相关数据，有助于优化VIP客户服务、账户管理和风控审查。</p>
+<h3 id="用户使用视图的例子"><a href="#用户使用视图的例子" class="headerlink" title="用户使用视图的例子"></a>用户使用视图的例子</h3><ol>
+<li><p><strong>例子 1：查询所有VIP储户的账户详细信息</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sql</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">复制代码</span><br><span class="line">SELECT * FROM View_VIPAccounts;</span><br></pre></td></tr></table></figure>
+
+<p><em>用途说明</em>: 银行客户经理或系统管理员可以使用此查询查看所有VIP储户的账户信息，以提供个性化服务或进行账户维护。</p>
+</li>
+<li><p><strong>例子 2：查询VIP储户的账户余额超过一定金额的信息</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sql复制代码SELECT AccNO, IDNO, Balance</span><br><span class="line">FROM View_VIPAccounts</span><br><span class="line">WHERE Balance &gt; 50000;</span><br></pre></td></tr></table></figure>
+
+<p><em>用途说明</em>: 银行风险管理人员可以使用此查询查找余额较高的VIP账户，以进行资金流动性监控和资产配置分析。</p>
+</li>
+</ol>
+<p>创建视图，查询卡中单笔收入超过10000元的储户的姓名、电话和卡号。然后，分析此视图用户会如何使用，并举出用户使用此视图的例子。上交内容包含创建语句，分析文字以及所有举例语句。</p>
+<h6 id="ChatGPT-说：-1"><a href="#ChatGPT-说：-1" class="headerlink" title="ChatGPT 说："></a>ChatGPT 说：</h6><p>ChatGPT</p>
+<h3 id="创建视图-1"><a href="#创建视图-1" class="headerlink" title="创建视图"></a>创建视图</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">sql复制代码-- 创建视图，用于查询单笔收入超过10000元的储户信息</span><br><span class="line">CREATE VIEW View_HighIncomeDepositors AS</span><br><span class="line">SELECT </span><br><span class="line">    d.Dname, </span><br><span class="line">    d.Telephone, </span><br><span class="line">    a.AccNO</span><br><span class="line">FROM </span><br><span class="line">    depositor d</span><br><span class="line">JOIN </span><br><span class="line">    account a ON d.IDNO = a.IDNO</span><br><span class="line">JOIN </span><br><span class="line">    Trecord t ON a.AccNO = t.AccNO</span><br><span class="line">WHERE </span><br><span class="line">    t.Income &gt; 10000;</span><br><span class="line">GO</span><br></pre></td></tr></table></figure>
+
+<h3 id="视图分析-1"><a href="#视图分析-1" class="headerlink" title="视图分析"></a>视图分析</h3><p>此视图 <code>View_HighIncomeDepositors</code> 提供了单笔收入超过 10000 元的储户的姓名、电话和卡号信息。用户可以利用此视图快速查看大额收入相关的储户，便于金融风险评估、潜在高净值客户分析、客户关怀策略制定等。</p>
+<h3 id="用户使用视图的例子-1"><a href="#用户使用视图的例子-1" class="headerlink" title="用户使用视图的例子"></a>用户使用视图的例子</h3><ol>
+<li><p><strong>例子 1：查询所有高收入储户的信息</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sql</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">复制代码</span><br><span class="line">SELECT * FROM View_HighIncomeDepositors;</span><br></pre></td></tr></table></figure>
+
+<p><em>用途说明</em>: 银行客户经理可以使用此查询获取最近单笔收入超过 10000 元的客户名单，以便进行后续跟进和服务。</p>
+</li>
+<li><p><strong>例子 2：统计高收入储户的数量</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sql复制代码SELECT COUNT(*) AS HighIncomeDepositorsCount</span><br><span class="line">FROM View_HighIncomeDepositors;</span><br></pre></td></tr></table></figure>
+
+<p><em>用途说明</em>: 银行数据分析员可以使用此查询统计拥有单笔大额收入的储户数量，以了解该群体的规模和分布情况。</p>
+</li>
+</ol>
+<p>创建函数，查询某储户某个月的支出总额，然后调用此函数。上交内容包含创建语句和调用语句</p>
+<h6 id="ChatGPT-说：-2"><a href="#ChatGPT-说：-2" class="headerlink" title="ChatGPT 说："></a>ChatGPT 说：</h6><p>ChatGPT</p>
+<h3 id="创建函数"><a href="#创建函数" class="headerlink" title="创建函数"></a>创建函数</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">sql复制代码-- 创建用于查询某储户在指定月份的支出总额的函数</span><br><span class="line">CREATE FUNCTION GetTotalExpenseForDepositor (</span><br><span class="line">    @IDNO CHAR(18),      -- 储户身份证号</span><br><span class="line">    @Year INT,           -- 查询年份</span><br><span class="line">    @Month INT           -- 查询月份</span><br><span class="line">)</span><br><span class="line">RETURNS MONEY</span><br><span class="line">AS</span><br><span class="line">BEGIN</span><br><span class="line">    DECLARE @TotalExpense MONEY;</span><br><span class="line">    </span><br><span class="line">    -- 计算指定储户在指定月份的支出总额</span><br><span class="line">    SELECT @TotalExpense = SUM(Expense)</span><br><span class="line">    FROM Trecord</span><br><span class="line">    WHERE AccNO IN (SELECT AccNO FROM account WHERE IDNO = @IDNO)</span><br><span class="line">      AND YEAR(TDate) = @Year</span><br><span class="line">      AND MONTH(TDate) = @Month;</span><br><span class="line"></span><br><span class="line">    -- 返回总支出，如果没有记录则返回 0</span><br><span class="line">    RETURN ISNULL(@TotalExpense, 0);</span><br><span class="line">END;</span><br><span class="line">GO</span><br></pre></td></tr></table></figure>
+
+<h3 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sql复制代码-- 调用函数查询身份证号为 &#x27;123456789012345678&#x27; 的储户在 2024 年 5 月的支出总额</span><br><span class="line">DECLARE @TotalExpense MONEY;</span><br><span class="line"></span><br><span class="line">SELECT @TotalExpense = dbo.GetTotalExpenseForDepositor(&#x27;123456789012345678&#x27;, 2024, 5);</span><br><span class="line"></span><br><span class="line">-- 输出结果</span><br><span class="line">PRINT &#x27;The total expense for the depositor in May 2024 is: &#x27; + CAST(@TotalExpense AS NVARCHAR(20));</span><br><span class="line">GO</span><br></pre></td></tr></table></figure>
+
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><ul>
+<li>函数 <code>GetTotalExpenseForDepositor</code> 会查询 <code>Trecord</code> 表，结合 <code>account</code> 表，获取指定储户在特定年份和月份的支出总额。</li>
+<li>如果没有找到匹配的记录，总支出将返回 <code>0</code>。</li>
+<li>调用例子展示了如何使用此函数，并将查询结果打印出来。</li>
+</ul>
+<p>按交易表的账号和对方账号升序创建普通索引，然后举两个能利用此索引加快查询速度的例子。上交内容包含创建语句以及两个例子。</p>
+<h6 id="ChatGPT-说：-3"><a href="#ChatGPT-说：-3" class="headerlink" title="ChatGPT 说："></a>ChatGPT 说：</h6><p>ChatGPT</p>
+<h3 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sql复制代码-- 在交易记录表 (Trecord) 上创建普通索引，按账号 (AccNO) 和对方账号 (OppAccNO) 列升序排列</span><br><span class="line">CREATE INDEX idx_AccNO_OppAccNO</span><br><span class="line">ON Trecord (AccNO ASC, OppAccNO ASC);</span><br><span class="line">GO</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用此索引的查询示例"><a href="#使用此索引的查询示例" class="headerlink" title="使用此索引的查询示例"></a>使用此索引的查询示例</h3><ol>
+<li><strong>查询特定账号与指定对方账号的交易记录</strong></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sql复制代码-- 查询账号为 &#x27;12345678901234567890&#x27; 且对方账号为 &#x27;09876543210987654321&#x27; 的所有交易记录</span><br><span class="line">SELECT *</span><br><span class="line">FROM Trecord</span><br><span class="line">WHERE AccNO = &#x27;12345678901234567890&#x27; AND OppAccNO = &#x27;09876543210987654321&#x27;</span><br><span class="line">ORDER BY AccNO ASC, OppAccNO ASC;</span><br></pre></td></tr></table></figure>
+
+<p><em>此查询利用索引加快了同时按 <code>AccNO</code> 和 <code>OppAccNO</code> 进行筛选和排序的操作。</em></p>
+<ol>
+<li><strong>查询所有交易记录，按账号和对方账号排序</strong></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sql复制代码-- 查询所有交易记录，并按账号和对方账号升序排列</span><br><span class="line">SELECT *</span><br><span class="line">FROM Trecord</span><br><span class="line">ORDER BY AccNO ASC, OppAccNO ASC;</span><br></pre></td></tr></table></figure>
+
+<p><em>此查询利用索引加快了大数据集上按 <code>AccNO</code> 和 <code>OppAccNO</code> 排序的操作。</em></p>
+<h3 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h3><ul>
+<li>创建的索引 <code>idx_AccNO_OppAccNO</code> 能有效加快涉及 <code>AccNO</code> 和 <code>OppAccNO</code> 列的查询速度，特别是在需要按这些列进行联合过滤和排序时。</li>
+<li>示例查询展示了如何利用索引来提高性能。第一个示例展示了查询某个账号和对方账号组合的交易记录，第二个示例展示了全表按这两个字段排序的查询。</li>
+</ul>
+<p>建一个修改某学生某门课成绩的存储过程，即将某学生某门课成绩加上一个输入的数值，然后调用此存储过程。上交内容包含创建语句和调用语句</p>
+<h6 id="ChatGPT-说：-4"><a href="#ChatGPT-说：-4" class="headerlink" title="ChatGPT 说："></a>ChatGPT 说：</h6><p>ChatGPT</p>
+<p>好的，下面是创建一个存储过程来修改某学生某门课程的成绩，并将该成绩增加指定数值的 SQL 语句：</p>
+<h3 id="1-创建存储过程"><a href="#1-创建存储过程" class="headerlink" title="1. 创建存储过程"></a>1. <strong>创建存储过程</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sql复制代码CREATE PROCEDURE UpdateScore</span><br><span class="line">    @sno CHAR(9),       -- 学号</span><br><span class="line">    @cno CHAR(4),       -- 课程号</span><br><span class="line">    @scoreIncrement INT -- 增加的成绩数值</span><br><span class="line">AS</span><br><span class="line">BEGIN</span><br><span class="line">    -- 更新成绩，将成绩增加指定的数值</span><br><span class="line">    UPDATE sc</span><br><span class="line">    SET score = score + @scoreIncrement</span><br><span class="line">    WHERE sno = @sno AND cno = @cno;</span><br><span class="line">    </span><br><span class="line">    -- 可以加入返回信息或者检查数据是否更新成功</span><br><span class="line">    PRINT &#x27;成绩更新成功&#x27;;</span><br><span class="line">END;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-调用存储过程"><a href="#2-调用存储过程" class="headerlink" title="2. 调用存储过程"></a>2. <strong>调用存储过程</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sql</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">复制代码</span><br><span class="line">EXEC UpdateScore @sno = &#x27;202201010&#x27;, @cno = &#x27;CS101&#x27;, @scoreIncrement = 5;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>UpdateScore</code> 存储过程接受三个参数：</p>
+<ul>
+<li><code>@sno</code>：学生的学号。</li>
+<li><code>@cno</code>：课程的课程号。</li>
+<li><code>@scoreIncrement</code>：要增加的成绩数值。</li>
+</ul>
+<p>存储过程会将指定学生在指定课程上的成绩增加一个数值。</p>
+<p>调用存储过程时，可以传入具体的学号、课程号和成绩增量值，例如将学号为 <code>&#39;202201010&#39;</code> 的学生在课程 <code>&#39;CS101&#39;</code> 上的成绩增加 5 分。</p>
 
 <div class="article-footer fs14">
     <section id="license">
@@ -109,7 +179,7 @@
     </section>
     </div>
 </article>
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2024/11/11/%E6%B5%8B%E8%AF%95%E4%B8%80%E4%B8%8BTypora/">测试一下Typora</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2024/10/29/test3/">test</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2024/11/18/%E6%95%B0%E6%8D%AE%E5%BA%93A-2/">数据库A 2</a></div></section></div>
 
 
 
@@ -138,7 +208,7 @@
 
 
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8Bteaching%E5%BA%93"><span class="toc-text">建立teaching库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8Bbankcard%E5%BA%93"><span class="toc-text">建立bankcard库</span></a></li></ol></div><div class="widget-footer">
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#ChatGPT-%E8%AF%B4%EF%BC%9A"><span class="toc-text">ChatGPT 说：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%A7%86%E5%9B%BE"><span class="toc-text">创建视图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE%E5%88%86%E6%9E%90"><span class="toc-text">视图分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E4%BD%BF%E7%94%A8%E8%A7%86%E5%9B%BE%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-text">用户使用视图的例子</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#ChatGPT-%E8%AF%B4%EF%BC%9A-1"><span class="toc-text">ChatGPT 说：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%A7%86%E5%9B%BE-1"><span class="toc-text">创建视图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE%E5%88%86%E6%9E%90-1"><span class="toc-text">视图分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E4%BD%BF%E7%94%A8%E8%A7%86%E5%9B%BE%E7%9A%84%E4%BE%8B%E5%AD%90-1"><span class="toc-text">用户使用视图的例子</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#ChatGPT-%E8%AF%B4%EF%BC%9A-2"><span class="toc-text">ChatGPT 说：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%87%BD%E6%95%B0"><span class="toc-text">创建函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0"><span class="toc-text">调用函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-text">说明</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#ChatGPT-%E8%AF%B4%EF%BC%9A-3"><span class="toc-text">ChatGPT 说：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95"><span class="toc-text">创建索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%AD%A4%E7%B4%A2%E5%BC%95%E7%9A%84%E6%9F%A5%E8%AF%A2%E7%A4%BA%E4%BE%8B"><span class="toc-text">使用此索引的查询示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-text">说明：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#ChatGPT-%E8%AF%B4%EF%BC%9A-4"><span class="toc-text">ChatGPT 说：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%9B%E5%BB%BA%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B"><span class="toc-text">1. 创建存储过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%B0%83%E7%94%A8%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B"><span class="toc-text">2. 调用存储过程</span></a></div><div class="widget-footer">
 
 <a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
 </div></aside><div class='float-panel blur'>
