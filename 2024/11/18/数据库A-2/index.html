@@ -17,23 +17,21 @@
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
   
-  <title>第一次写一下博客 - kuzemax's blog</title>
+  <title>数据库A 2 - kuzemax's blog</title>
 
   
-    <meta name="description" content="测试一下各个模块的摆放位置  第一步测试一下标题#标题##标题###标题 标题  ---  第二步试一下段落I really like using Markdown.  I think I&#39;ll use it to format all of my documents from now on.  第三步试一下换行First line with two spaces after.And the ne">
+    <meta name="description" content="– 创建视图，查询所有信用卡账户的储户信息CREATE VIEW CreditCardCustomerInfo ASSELECT D.IDNO, D.Dname, D.Telephone, D.VIPFROM depositor DWHERE D.IDNO IN (    SELECT A.IDNO    FROM account A    WHERE A.CardType &#x3D; ‘信用卡">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一次写一下博客">
-<meta property="og:url" content="https://kuzemax.github.io/2024/10/22/test1/index.html">
+<meta property="og:title" content="数据库A 2">
+<meta property="og:url" content="https://kuzemax.github.io/2024/11/18/%E6%95%B0%E6%8D%AE%E5%BA%93A-2/index.html">
 <meta property="og:site_name" content="kuzemax&#39;s blog">
-<meta property="og:description" content="测试一下各个模块的摆放位置  第一步测试一下标题#标题##标题###标题 标题  ---  第二步试一下段落I really like using Markdown.  I think I&#39;ll use it to format all of my documents from now on.  第三步试一下换行First line with two spaces after.And the ne">
+<meta property="og:description" content="– 创建视图，查询所有信用卡账户的储户信息CREATE VIEW CreditCardCustomerInfo ASSELECT D.IDNO, D.Dname, D.Telephone, D.VIPFROM depositor DWHERE D.IDNO IN (    SELECT A.IDNO    FROM account A    WHERE A.CardType &#x3D; ‘信用卡">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://kuzemax.github.io/image/2.jpg">
-<meta property="article:published_time" content="2024-10-22T08:17:49.710Z">
-<meta property="article:modified_time" content="2024-11-01T09:00:02.996Z">
+<meta property="article:published_time" content="2024-11-18T06:35:04.240Z">
+<meta property="article:modified_time" content="2024-11-18T06:35:04.240Z">
 <meta property="article:author" content="kuzemax">
 <meta property="article:tag" content="kuze">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://kuzemax.github.io/image/2.jpg">
   
   
   
@@ -81,131 +79,67 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-10-22T08:17:49.710Z">2024-10-22</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-11-01T09:00:02.996Z">2024-11-01</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-11-18T06:35:04.240Z">2024-11-18</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-11-18T06:35:04.240Z">2024-11-18</time></span></div></div></div>
     
     <div class="bottom only-title">
       
       <div class="text-area">
-        <h1 class="text title"><span>第一次写一下博客</span></h1>
+        <h1 class="text title"><span>数据库A 2</span></h1>
         
       </div>
     </div>
     
   </div>
-  </div><article class="md-text content"><p>测试一下各个模块的摆放位置</p>
-<hr>
-<h1 id="第一步测试一下标题"><a href="#第一步测试一下标题" class="headerlink" title="第一步测试一下标题"></a>第一步测试一下标题</h1><h1 id="标题"><a href="#标题" class="headerlink" title="#标题"></a>#标题</h1><h2 id="标题-1"><a href="#标题-1" class="headerlink" title="##标题"></a>##标题</h2><h3 id="标题-2"><a href="#标题-2" class="headerlink" title="###标题"></a>###标题</h3><h1> 标题 </h1>
----
+  </div><article class="md-text content"><p>– 创建视图，查询所有信用卡账户的储户信息<br>CREATE VIEW CreditCardCustomerInfo AS<br>SELECT D.IDNO, D.Dname, D.Telephone, D.VIP<br>FROM depositor D<br>WHERE D.IDNO IN (<br>    SELECT A.IDNO<br>    FROM account A<br>    WHERE A.CardType &#x3D; ‘信用卡’<br>);<br>GO</p>
+<h3 id="创建视图的-SQL-语句："><a href="#创建视图的-SQL-语句：" class="headerlink" title="创建视图的 SQL 语句："></a>创建视图的 SQL 语句：</h3><p>首先，使用子查询来查询所有信用卡账户的储户信息，包括身份证号、姓名、电话和VIP状态。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sql复制代码-- 创建视图，查询所有信用卡账户的储户信息</span><br><span class="line">CREATE VIEW CreditCardCustomerInfo AS</span><br><span class="line">SELECT D.IDNO, D.Dname, D.Telephone, D.VIP</span><br><span class="line">FROM depositor D</span><br><span class="line">WHERE D.IDNO IN (</span><br><span class="line">    SELECT A.IDNO</span><br><span class="line">    FROM account A</span><br><span class="line">    WHERE A.CardType = &#x27;信用卡&#x27;</span><br><span class="line">);</span><br><span class="line">GO</span><br></pre></td></tr></table></figure>
 
-<h1 id="第二步试一下段落"><a href="#第二步试一下段落" class="headerlink" title="第二步试一下段落"></a>第二步试一下段落</h1><p>I really like using Markdown.</p>
-
-<p>I think I'll use it to format all of my documents from now on.</p>
-
-<h1 id="第三步试一下换行"><a href="#第三步试一下换行" class="headerlink" title="第三步试一下换行"></a>第三步试一下换行</h1><p>First line with two spaces after.<br>And the next line.</p>
-<p>First line with the HTML tag after.<br><br>And the next line.</p>
-<h1 id="第四步试一下强调"><a href="#第四步试一下强调" class="headerlink" title="第四步试一下强调"></a>第四步试一下强调</h1><p>Love<strong>is</strong>bold</p>
-<p>Italicized text is the <em>cat’s meow</em>.</p>
-<p>This text is <em><strong>really important</strong></em>.</p>
-<p>Markdown 引用语法<br>要创建块引用，请在段落前添加一个 &gt; 符号。</p>
-<blockquote>
-<p>Dorothy followed her through many of the beautiful rooms in her castle.<br>渲染效果如下所示：</p>
-</blockquote>
-<p>Dorothy followed her through many of the beautiful rooms in her castle.</p>
-<p>多个段落的块引用<br>块引用可以包含多个段落。为段落之间的空白行添加一个 &gt; 符号。</p>
-<blockquote>
-<p>Dorothy followed her through many of the beautiful rooms in her castle.</p>
-<p>The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.<br>渲染效果如下：</p>
-</blockquote>
-<p>Dorothy followed her through many of the beautiful rooms in her castle.</p>
-<p>The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.</p>
-<p>嵌套块引用<br>块引用可以嵌套。在要嵌套的段落前添加一个 &gt;&gt; 符号。</p>
-<blockquote>
-<p>Dorothy followed her through many of the beautiful rooms in her castle.</p>
-<blockquote>
-<p>The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.<br>渲染效果如下：</p>
-</blockquote>
-</blockquote>
-<p>Dorothy followed her through many of the beautiful rooms in her castle.</p>
-<p>The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.</p>
-<p>带有其它元素的块引用<br>块引用可以包含其他 Markdown 格式的元素。并非所有元素都可以使用，你需要进行实验以查看哪些元素有效。</p>
-<blockquote>
-<h4 id="The-quarterly-results-look-great"><a href="#The-quarterly-results-look-great" class="headerlink" title="The quarterly results look great!"></a>The quarterly results look great!</h4><ul>
-<li>Revenue was off the chart.</li>
-<li>Profits were higher than ever.</li>
-</ul>
-<p> <em>Everything</em> is going according to <strong>plan</strong>.<br>渲染效果如下：</p>
-</blockquote>
-<p>The quarterly results look great!<br>Revenue was off the chart.<br>Profits were higher than ever.<br>Everything is going according to plan.</p>
-<p>有序列表<br>要创建有序列表，请在每个列表项前添加数字并紧跟一个英文句点。数字不必按数学顺序排列，但是列表应当以数字 1 起始。</p>
-<ol>
-<li>First item</li>
-<li>Second item</li>
-<li>Third item</li>
-<li>Fourth item</li>
-</ol>
-<p>无序列表<br>要创建无序列表，请在每个列表项前面添加破折号 (-)、星号 (*) 或加号 (+) 。缩进一个或多个列表项可创建嵌套列表。</p>
-<ul>
-<li>First item</li>
-<li>Second item</li>
-<li>Third item<ul>
-<li>Indented item</li>
-<li>Indented item</li>
-</ul>
+<h3 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h3><p>此视图 <code>CreditCardCustomerInfo</code> 会返回所有拥有信用卡账户的储户的基本信息（身份证号、姓名、电话、VIP状态）。通过使用子查询，我们能够筛选出所有信用卡账户的储户信息。主查询从 <code>depositor</code> 表中提取相应的储户信息，并通过子查询从 <code>account</code> 表中获取持有信用卡账户的储户的 <code>IDNO</code>。</p>
+<h3 id="用户如何使用此视图："><a href="#用户如何使用此视图：" class="headerlink" title="用户如何使用此视图："></a>用户如何使用此视图：</h3><p>此视图的使用场景主要是银行、信用卡公司或其他金融机构需要快速查看所有持有信用卡账户的储户信息。通过此视图，用户可以直接获取这些储户的基本信息，无需每次都编写复杂的查询。</p>
+<h3 id="使用示例："><a href="#使用示例：" class="headerlink" title="使用示例："></a>使用示例：</h3><ol>
+<li><p><strong>查询所有信用卡储户的基本信息</strong>： 如果银行客服或金融机构工作人员需要查看所有信用卡持卡人的基本信息（例如，身份证号、姓名、电话和VIP状态），可以直接使用此视图。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sql复制代码-- 查询所有信用卡储户的基本信息</span><br><span class="line">SELECT * FROM CreditCardCustomerInfo;</span><br></pre></td></tr></table></figure>
 </li>
-<li>Fourth item</li>
-</ul>
-<p>Markdown 代码语法<br>要将单词或短语表示为代码，请将其包裹在反引号 (&#96;) 中。</p>
-<p>At the command prompt, type <code>nano</code>.</p>
-<p>Markdown 分隔线语法<br>要创建分隔线，请在单独一行上使用三个或多个星号 (***)、破折号 (—) 或下划线 (___) ，并且不能包含其他内容。</p>
-<p>Try to put a blank line before…</p>
-<hr>
-<p>…and after a horizontal rule.</p>
-<p>Markdown 链接语法<br>链接文本放在中括号内，链接地址放在后面的括号中，链接title可选。</p>
-<p>超链接Markdown语法代码：<code>[超链接显示名](超链接地址 &quot;超链接title&quot;)</code></p>
-<p>对应的HTML代码：<code>&lt;a href=&quot;超链接地址&quot; title=&quot;超链接title&quot;&gt;超链接显示名&lt;/a&gt;</code></p>
-<p>这是一个链接 <a target="_blank" rel="noopener" href="https://markdown.com.cn/">Markdown语法</a>。</p>
-<p>Markdown 图片语法<br>要添加图像，请使用感叹号 (!), 然后在方括号增加替代文本，图片链接放在圆括号里，括号里的链接后可以增加一个可选的图片标题文本。</p>
-<p><a target="_blank" rel="noopener" href="https://markdown.com.cn/"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/2.jpg" alt="沙漠中的岩石图片" title="Shiprock"></a></p>
-<p>Markdown 表格<br>要添加表，请使用三个或多个连字符（—）创建每列的标题，并使用管道（|）分隔每列。您可以选择在表的任一端添加管道。</p>
-<table>
-<thead>
-<tr>
-<th>Syntax</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Header</td>
-<td>Title</td>
-</tr>
-<tr>
-<td>Paragraph</td>
-<td>Text</td>
-</tr>
-</tbody></table>
-<p>对齐<br>您可以通过在标题行中的连字符的左侧，右侧或两侧添加冒号（:），将列中的文本对齐到左侧，右侧或中心。</p>
-<table>
-<thead>
-<tr>
-<th align="left">Syntax</th>
-<th align="center">Description</th>
-<th align="right">Test Text</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">Header</td>
-<td align="center">Title</td>
-<td align="right">Here’s this</td>
-</tr>
-<tr>
-<td align="left">Paragraph</td>
-<td align="center">Text</td>
-<td align="right">And more</td>
-</tr>
-</tbody></table>
-<p>markdown 删除线<br>您可以通过在单词中心放置一条水平线来删除单词。结果看起来像这样。此功能使您可以指示某些单词是一个错误，要从文档中删除。若要删除单词，请在单词前后使用两个波浪号~~。</p>
-<p><del>世界是平坦的。</del> 我们现在知道世界是圆的。</p>
+<li><p><strong>查询某个特定储户的信用卡信息</strong>： 如果某个客户服务代表需要查询特定身份证号的储户是否持有信用卡，可以使用此视图来检索该储户的基本信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sql复制代码-- 查询身份证号为 &#x27;123456789012345678&#x27; 的储户信息</span><br><span class="line">SELECT * FROM CreditCardCustomerInfo WHERE IDNO = &#x27;123456789012345678&#x27;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>查看所有VIP储户的信用卡账户信息</strong>： 如果银行想要根据VIP状态筛选持卡人，可以通过查询视图来获取所有VIP信用卡客户的信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sql复制代码-- 查询所有VIP储户的信用卡账户信息</span><br><span class="line">SELECT * FROM CreditCardCustomerInfo WHERE VIP = &#x27;是&#x27;;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>3– 创建存储过程来修改某账户的余额</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">CREATE PROCEDURE UpdateAccountBalance</span><br><span class="line">    @AccNO CHAR(20),      -- 输入的账户号</span><br><span class="line">    @Amount MONEY         -- 要加上的数值，可以为正数（存入）或负数（取出）</span><br><span class="line">AS</span><br><span class="line">BEGIN</span><br><span class="line">    -- 检查账户是否存在</span><br><span class="line">    IF EXISTS (SELECT 1 FROM account WHERE AccNO = @AccNO)</span><br><span class="line">    BEGIN</span><br><span class="line">        -- 更新账户余额</span><br><span class="line">        UPDATE account</span><br><span class="line">        SET Balance = Balance + @Amount</span><br><span class="line">        WHERE AccNO = @AccNO;</span><br><span class="line"></span><br><span class="line">        PRINT &#x27;账户余额已成功更新。&#x27;;</span><br><span class="line">    END</span><br><span class="line">    ELSE</span><br><span class="line">    BEGIN</span><br><span class="line">        PRINT &#x27;错误：账户不存在。&#x27;;</span><br><span class="line">    END</span><br><span class="line"></span><br><span class="line">END;</span><br><span class="line">GO</span><br></pre></td></tr></table></figure>
 
+
+
+<h3 id="调用存储过程的语句："><a href="#调用存储过程的语句：" class="headerlink" title="调用存储过程的语句："></a>调用存储过程的语句：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sql复制代码-- 调用存储过程，将账户号为 &#x27;12345678901234567890&#x27; 的账户余额增加 500.00</span><br><span class="line">EXEC UpdateAccountBalance @AccNO = &#x27;12345678901234567890&#x27;, @Amount = 500.00;</span><br><span class="line"></span><br><span class="line">-- 调用存储过程，将账户号为 &#x27;12345678901234567890&#x27; 的账户余额减少 200.00</span><br><span class="line">EXEC UpdateAccountBalance @AccNO = &#x27;12345678901234567890&#x27;, @Amount = -200.00;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>4创建函数，查询某储户某个月每张卡的收入明细，然后调用此函数。上交内容包含创建语句和调用语句。（15分）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">-- 创建函数，查询某储户某个月每张卡的收入明细</span><br><span class="line">CREATE FUNCTION GetIncomeDetailsForDepositor</span><br><span class="line">(</span><br><span class="line">    @IDNO CHAR(18),     -- 输入的储户身份证号</span><br><span class="line">    @Year INT,          -- 输入的年份</span><br><span class="line">    @Month INT          -- 输入的月份</span><br><span class="line">)</span><br><span class="line">RETURNS TABLE</span><br><span class="line">AS</span><br><span class="line">RETURN</span><br><span class="line">(</span><br><span class="line">    SELECT </span><br><span class="line">        T.AccNO,</span><br><span class="line">        A.CardType,</span><br><span class="line">        T.TDate,</span><br><span class="line">        T.Income,</span><br><span class="line">        T.Place,</span><br><span class="line">        T.Abstract</span><br><span class="line">    FROM Trecord T</span><br><span class="line">    INNER JOIN account A ON T.AccNO = A.AccNO</span><br><span class="line">    WHERE A.IDNO = @IDNO</span><br><span class="line">      AND YEAR(T.TDate) = @Year</span><br><span class="line">      AND MONTH(T.TDate) = @Month</span><br><span class="line">      AND T.Income IS NOT NULL</span><br><span class="line">)</span><br><span class="line">GO</span><br></pre></td></tr></table></figure>
+
+<h3 id="调用函数的语句"><a href="#调用函数的语句" class="headerlink" title="调用函数的语句"></a>调用函数的语句</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sql复制代码-- 调用函数并查询指定储户身份证号为 &#x27;123456789012345678&#x27; 在 2024 年 5 月的每张卡的收入明细</span><br><span class="line">SELECT * </span><br><span class="line">FROM GetIncomeDetailsForDepositor(&#x27;123456789012345678&#x27;, 2024, 5);</span><br></pre></td></tr></table></figure>
+
+<p>5</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">-- 创建触发器，限制在储户表上只能在每年6月20日和12月20日修改VIP的值</span><br><span class="line">CREATE TRIGGER trg_LimitVIPUpdate</span><br><span class="line">ON depositor</span><br><span class="line">AFTER UPDATE</span><br><span class="line">AS</span><br><span class="line">BEGIN</span><br><span class="line">    DECLARE @CurrentDate DATE;</span><br><span class="line">    SET @CurrentDate = CAST(GETDATE() AS DATE);</span><br><span class="line"></span><br><span class="line">    -- 检查是否更新了VIP列，并验证日期</span><br><span class="line">    IF UPDATE(VIP)</span><br><span class="line">    BEGIN</span><br><span class="line">        IF @CurrentDate NOT IN (&#x27;2024-06-20&#x27;, &#x27;2024-12-20&#x27;)</span><br><span class="line">        BEGIN</span><br><span class="line">            ROLLBACK TRANSACTION;</span><br><span class="line">            RAISERROR(&#x27;VIP字段只能在每年6月20日和12月20日修改。&#x27;, 16, 1);</span><br><span class="line">        END</span><br><span class="line">    END</span><br><span class="line"></span><br><span class="line">END;</span><br><span class="line">GO</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建触发器"><a href="#创建触发器" class="headerlink" title="创建触发器"></a>创建触发器</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">sql复制代码-- 创建触发器，限制在储户表上只能在每年6月20日和12月20日修改VIP的值</span><br><span class="line">CREATE TRIGGER trg_LimitVIPUpdate</span><br><span class="line">ON depositor</span><br><span class="line">AFTER UPDATE</span><br><span class="line">AS</span><br><span class="line">BEGIN</span><br><span class="line">    DECLARE @CurrentDate DATE;</span><br><span class="line">    SET @CurrentDate = CAST(GETDATE() AS DATE);</span><br><span class="line"></span><br><span class="line">    -- 检查是否更新了VIP列，并验证日期</span><br><span class="line">    IF UPDATE(VIP)</span><br><span class="line">    BEGIN</span><br><span class="line">        IF @CurrentDate NOT IN (&#x27;2024-06-20&#x27;, &#x27;2024-12-20&#x27;)</span><br><span class="line">        BEGIN</span><br><span class="line">            ROLLBACK TRANSACTION;</span><br><span class="line">            RAISERROR(&#x27;VIP字段只能在每年6月20日和12月20日修改。&#x27;, 16, 1);</span><br><span class="line">        END</span><br><span class="line">    END</span><br><span class="line">END;</span><br><span class="line">GO</span><br></pre></td></tr></table></figure>
+
+<h3 id="触发触发器的示例"><a href="#触发触发器的示例" class="headerlink" title="触发触发器的示例"></a>触发触发器的示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sql复制代码-- 示例：尝试在不允许的日期更新VIP字段以触发触发器</span><br><span class="line">UPDATE depositor</span><br><span class="line">SET VIP = &#x27;是&#x27;</span><br><span class="line">WHERE IDNO = &#x27;123456789012345678&#x27;; -- 假设此身份证号存在于表中</span><br></pre></td></tr></table></figure>
+
+<p>6</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 在交易记录表 (Trecord) 上创建普通索引，按账号 (AccNO) 和交易时间 (TDate) 列升序排列</span><br><span class="line">CREATE INDEX idx_AccNO_TDate</span><br><span class="line">ON Trecord (AccNO ASC, TDate ASC);</span><br><span class="line">GO</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用此索引的查询示例"><a href="#使用此索引的查询示例" class="headerlink" title="使用此索引的查询示例"></a>使用此索引的查询示例</h3><ol>
+<li><strong>查询特定账号的交易记录，按交易时间升序排列</strong></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sql复制代码-- 查询账号为 &#x27;12345678901234567890&#x27; 的所有交易记录，按交易时间升序排列</span><br><span class="line">SELECT *</span><br><span class="line">FROM Trecord</span><br><span class="line">WHERE AccNO = &#x27;12345678901234567890&#x27;</span><br><span class="line">ORDER BY TDate ASC;</span><br></pre></td></tr></table></figure>
+
+<p><em>此查询利用索引加快了根据 <code>AccNO</code> 筛选并按 <code>TDate</code> 排序的操作。</em></p>
+<ol>
+<li><strong>查询指定时间范围内的所有交易记录，按账号和交易时间升序排列</strong></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sql复制代码-- 查询从 &#x27;2024-01-01&#x27; 到 &#x27;2024-12-31&#x27; 之间的所有交易记录，并按账号和交易时间升序排列</span><br><span class="line">SELECT *</span><br><span class="line">FROM Trecord</span><br><span class="line">WHERE TDate BETWEEN &#x27;2024-01-01&#x27; AND &#x27;2024-12-31&#x27;</span><br><span class="line">ORDER BY AccNO ASC, TDate ASC;</span><br></pre></td></tr></table></figure>
 <div class="article-footer fs14">
     <section id="license">
       <div class="header"><span>许可协议</span></div>
@@ -214,7 +148,7 @@
     </section>
     </div>
 </article>
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2024/10/22/test2/">传奇ChatGpt驯兽手册</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2024/10/22/hello-world/">Hello World</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2024/11/18/%E6%95%B0%E6%8D%AE%E5%BA%93A/">数据库A</a></div></section></div>
 
 
 
@@ -243,7 +177,7 @@
 
 
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%E6%B5%8B%E8%AF%95%E4%B8%80%E4%B8%8B%E6%A0%87%E9%A2%98"><span class="toc-text">第一步测试一下标题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%87%E9%A2%98"><span class="toc-text">#标题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E9%A2%98-1"><span class="toc-text">##标题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E9%A2%98-2"><span class="toc-text">###标题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text"> 标题 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%E8%AF%95%E4%B8%80%E4%B8%8B%E6%AE%B5%E8%90%BD"><span class="toc-text">第二步试一下段落</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%E8%AF%95%E4%B8%80%E4%B8%8B%E6%8D%A2%E8%A1%8C"><span class="toc-text">第三步试一下换行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%E8%AF%95%E4%B8%80%E4%B8%8B%E5%BC%BA%E8%B0%83"><span class="toc-text">第四步试一下强调</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#The-quarterly-results-look-great"><span class="toc-text">The quarterly results look great!</span></a></li></ol></li></ol></li></ol></li></ol></div><div class="widget-footer">
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%A7%86%E5%9B%BE%E7%9A%84-SQL-%E8%AF%AD%E5%8F%A5%EF%BC%9A"><span class="toc-text">创建视图的 SQL 语句：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90%EF%BC%9A"><span class="toc-text">分析：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E6%AD%A4%E8%A7%86%E5%9B%BE%EF%BC%9A"><span class="toc-text">用户如何使用此视图：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B%EF%BC%9A"><span class="toc-text">使用示例：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E7%9A%84%E8%AF%AD%E5%8F%A5%EF%BC%9A"><span class="toc-text">调用存储过程的语句：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%AD%E5%8F%A5"><span class="toc-text">调用函数的语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="toc-text">创建触发器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A6%E5%8F%91%E8%A7%A6%E5%8F%91%E5%99%A8%E7%9A%84%E7%A4%BA%E4%BE%8B"><span class="toc-text">触发触发器的示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%AD%A4%E7%B4%A2%E5%BC%95%E7%9A%84%E6%9F%A5%E8%AF%A2%E7%A4%BA%E4%BE%8B"><span class="toc-text">使用此索引的查询示例</span></a></li></ol></div><div class="widget-footer">
 
 <a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
 </div></aside><div class='float-panel blur'>
